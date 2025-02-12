@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Traditional IQ Test</title>
+  <title>Traditional and Advanced IQ Test</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -45,9 +45,9 @@
   </style>
 </head>
 <body>
-  <h1>Traditional IQ Test</h1>
+  <h1>Traditional and Advanced IQ Test</h1>
   <div id="quiz">
-    <!-- Question 1 -->
+    <!-- Traditional Questions -->
     <div class="question">
       <p>1. What number comes next in the sequence? 2, 4, 6, 8, ?</p>
       <input type="radio" name="q1" value="a"> 9<br>
@@ -55,7 +55,6 @@
       <input type="radio" name="q1" value="c"> 12<br>
     </div>
 
-    <!-- Question 2 -->
     <div class="question">
       <p>2. Which shape does not belong?</p>
       <input type="radio" name="q2" value="a"> Circle<br>
@@ -64,29 +63,64 @@
       <input type="radio" name="q2" value="d"> Hexagon<br>
     </div>
 
-    <!-- Question 3 -->
     <div class="question">
       <p>3. If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies?</p>
       <input type="radio" name="q3" value="a"> Yes<br>
       <input type="radio" name="q3" value="b"> No<br>
     </div>
 
-    <!-- Question 4 -->
     <div class="question">
-      <p>4. What is the missing number?</p>
-      <p>3, 6, 9, 12, ?</p>
+      <p>4. What is the missing number? 3, 6, 9, 12, ?</p>
       <input type="radio" name="q4" value="a"> 14<br>
       <input type="radio" name="q4" value="b"> 15<br>
       <input type="radio" name="q4" value="c"> 18<br>
     </div>
 
-    <!-- Question 5 -->
     <div class="question">
       <p>5. Which word does not belong?</p>
       <input type="radio" name="q5" value="a"> Apple<br>
       <input type="radio" name="q5" value="b"> Banana<br>
       <input type="radio" name="q5" value="c"> Carrot<br>
       <input type="radio" name="q5" value="d"> Orange<br>
+    </div>
+
+    <!-- Advanced Questions -->
+    <div class="question">
+      <p>6. If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies?</p>
+      <input type="radio" name="q6" value="a"> Yes<br>
+      <input type="radio" name="q6" value="b"> No<br>
+    </div>
+
+    <div class="question">
+      <p>7. What number comes next in the sequence? 1, 1, 2, 3, 5, 8, 13, ?</p>
+      <input type="radio" name="q7" value="a"> 18<br>
+      <input type="radio" name="q7" value="b"> 21<br>
+      <input type="radio" name="q7" value="c"> 23<br>
+      <input type="radio" name="q7" value="d"> 25<br>
+    </div>
+
+    <div class="question">
+      <p>8. Which shape completes the pattern? (Square, Circle, Triangle, Square, Circle, ?)</p>
+      <input type="radio" name="q8" value="a"> Triangle<br>
+      <input type="radio" name="q8" value="b"> Square<br>
+      <input type="radio" name="q8" value="c"> Circle<br>
+      <input type="radio" name="q8" value="d"> Rectangle<br>
+    </div>
+
+    <div class="question">
+      <p>9. If 3 people can paint 3 fences in 3 hours, how many people are needed to paint 9 fences in 9 hours?</p>
+      <input type="radio" name="q9" value="a"> 3<br>
+      <input type="radio" name="q9" value="b"> 6<br>
+      <input type="radio" name="q9" value="c"> 9<br>
+      <input type="radio" name="q9" value="d"> 12<br>
+    </div>
+
+    <div class="question">
+      <p>10. If "TREE" is coded as "XVII," how is "PLANT" coded?</p>
+      <input type="radio" name="q10" value="a"> KOBZG<br>
+      <input type="radio" name="q10" value="b"> KOBYH<br>
+      <input type="radio" name="q10" value="c"> KOBZI<br>
+      <input type="radio" name="q10" value="d"> KOBZJ<br>
     </div>
   </div>
   <button onclick="calculateScore()">Submit</button>
@@ -103,10 +137,15 @@
         q3: "a", // Yes
         q4: "b", // 15
         q5: "c", // Carrot
+        q6: "a", // Yes (Bloops are Lazzies)
+        q7: "b", // 21 (Fibonacci)
+        q8: "a", // Triangle
+        q9: "a", // 3 people
+        q10: "c", // KOBZI
       };
 
       // Check each question
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const questionName = `q${i}`;
         const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
 
@@ -117,17 +156,12 @@
 
       // Display result
       const resultElement = document.getElementById("result");
-      resultElement.textContent = `Your score is ${score} out of 5.`;
+      resultElement.textContent = `Your score is ${score} out of 10.`;
 
       // Optional: Calculate IQ-like score (for fun)
-      const iqScore = (score / 5) * 100 + 60; // Arbitrary formula
+      const iqScore = (score / 10) * 100 + 60; // Arbitrary formula
       resultElement.textContent += ` (Approximate IQ: ${iqScore})`;
     }
   </script>
-  <div class="question">
-  <p>6. If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies?</p>
-  <input type="radio" name="q6" value="a"> Yes<br>
-  <input type="radio" name="q6" value="b"> No<br>
-</div>
 </body>
 </html>
